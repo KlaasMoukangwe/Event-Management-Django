@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+<div class ="my-5">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <p class="text-2xl text-slate-600">Are you sure you want to delete
+             <span class="bg-red-500 text-white "> {{event.title}}</span>
+             from the system?</p>
+        <div class="my-5">
+           {% comment %} Confirm Event Deletion {% endcomment %}
+            <button type="submit" href="{% url 'eventlist' %}" class="bg-red-500 hover:bg-red-700 text-white  py-2 px-5 rounded">
+            Yes
+            </button>
+          
+            {% comment %} Do not Delete Event {% endcomment %}
+            <a type="button" href="{% url 'eventlist' %}" class="bg-green-500 hover:bg-green-700 text-white  py-2 px-5 rounded">
+            No
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock content %}

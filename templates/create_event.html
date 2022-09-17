@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="w-2/4 my-10 mx-auto">
+
+ <h1 class="text-3xl">Create new event</h1>
+ <form method="POST">
+   {% csrf_token %} 
+   {{ form.subject.errors }}
+
+
+<div class="grid gap-6 mb-6 md:grid-cols-2">
+
+  <div>
+    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Event Name</label>
+    <input type="text" id="title" name="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+      dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    placeholder="Type Event Name" required >
+    </div>
+
+  <div>
+    <label for="Category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Event Category</label>
+    <p class="w-max	bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+      focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+      dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> {{form.category}}
+    </p>
+  </div>
+
+ <div>
+    <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Event Start Date</label>
+    <input type="date" id="start_date" name="start_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm 
+    rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+    dark:placeholder-gray-400 
+    dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    placeholder="Enter Start Date" required >
+</div>  
+
+ <div>
+  <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Event End Date</label>
+  <input type="date" id="end_date" name="end_date" class="bg-gray-50 border border-gray-300 text-gray-900
+   text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block 
+   w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+   dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    placeholder="Event End Date" required>
+</div>
+
+
+<div>
+  <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Event Start Time</label>
+  <input type="time" id="start_time" name="start_time" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm 
+  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+  dark:placeholder-gray-400 
+  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  placeholder="Enter Start Time" required >
+</div>  
+
+<div>
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Event End Time</label>
+<input type="time" id="end_time" name="end_time" class="bg-gray-50 border border-gray-300 text-gray-900
+ text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block 
+ w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+ dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  placeholder="Event End Time" required>
+</div>
+
+<div>
+  <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ticket Price</label>
+  <input type="number" id="ticket_price" name="ticket_price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+    dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  placeholder="How much is the ticket?" required >
+  </div>
+
+  <div>
+    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Available Tickets</label>
+    <input type="number" id="available_tickets" name="available_tickets" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+      dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    placeholder="How many tickets are available?" required >
+    </div>
+
+
+<div>
+  <label for="venue" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Venue</label>
+  <p class="w-max	bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+    dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> {{form.venue}}
+  </p>
+</div>
+
+<div>
+  <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Event Synopsis</label>
+  <textarea  id="description" name="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+    dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    placeholder="What is the event about?"
+  required ></textarea>
+</div>
+
+
+<input class="mt-5 p-2 bg-green-500 text-white rounded" type="submit" value="Save"/>
+ </form>
+</div>
+{% endblock content %}
+ 

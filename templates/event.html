@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+       
+    <div class="grid gap-6 my-6 md:grid-cols-2 ">
+    <div> 
+        <h1 class="text-3xl text-slate-800 text-bold mb-5"> {{event.title}} Details</h1>
+        <p class="text-lg text-slate-600 capitalize">Event Title: <span class="font-bold pl-4">{{event.title}}</span></p>
+        <p class="text-lg text-slate-600 capitalize">Category: <span class="font-bold	pl-4">{{event.category}}</span></p>
+        <p class="text-lg text-slate-600 capitalize">Venue: <span class="font-bold	pl-4">{{event.venue}}</span></p>
+        <p class="text-lg text-slate-600 capitalize">Ticket Price: <span class="font-bold	pl-4">{{event.ticket_price}}</span></p>
+        <p class="text-lg text-slate-600 capitalize">Available Tickets: <span class="font-bold	pl-4">{{event.available_tickets}}</span></p>
+        <p class="text-lg text-slate-600 capitalize">About Event: <span class="font-bold	pl-4">{{event.description}}</span></p>
+    </div>
+    <div> 
+        <h1 class="text-3xl text-slate-600  mb-5"> Date & Time </h1>
+
+        <h2 class="text-2xl text-slate-600 capitalize my-4 ">Date</h2>
+        <p class="text-lg text-slate-600 capitalize">Start Date: <span class="font-bold	pl-4">{{event.start_date}}</span></p>
+        <p class="text-lg text-slate-600 capitalize">End Date: <span class="font-bold	pl-4">{{event.end_date}}</span></p>
+
+        <h2 class="text-2xl text-slate-600 capitalize my-4">Time</h2>
+        <p class="text-lg text-slate-600 capitalize">Start Date: <span class="font-bold	pl-4">{{event.start_date}}</span></p>
+        <p class="text-lg text-slate-600 capitalize">End Date: <span class="font-bold	pl-4">{{event.end_date}}</span></p>
+    </div>
+    <div class="my-5">
+        {% comment %} Confirm Event Deletion {% endcomment %}
+         <a type="button" href="{% url 'update' event.id %}" class="bg-red-500 hover:bg-red-700 text-white  py-2 px-5 rounded">
+         Update Event
+         </a>
+       
+         {% comment %} Do not Delete Event {% endcomment %}
+         <a type="button" href="{% url 'eventlist' %}" class="bg-green-500 hover:bg-green-700 text-white  py-2 px-5 rounded">
+         Back to all events
+         </a>
+     </div>
+
+    
+{% endblock content %}
